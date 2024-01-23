@@ -11,7 +11,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 // Setting up the columns
-var fontSize = 10,
+var fontSize = 20,
     columns = canvas.width / fontSize;
 
 // Setting up the drops
