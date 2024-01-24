@@ -1,22 +1,32 @@
 const canvas = document.getElementById('background');
 const context = canvas.getContext('2d');
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-var AllChars = [];
-var alphabet = String
-for (var i=32; i<127; i++)
-    AllChars.push(String.fromCharCode(i));
-    alphabet += AllChars[i]
-
 const fontSize = 16;
-const columns = canvas.width/fontSize;
+let columns = canvas.width/ fontSize;
+initalize();
 
+function initalize() {
+    window.addEventListener('resize', resizeCanvas, false)
+    resizeCanvas();
+}
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    columns = window.innerWidth / fontSize
+}
+
+const AllChars = [];
+let alphabet = String;
+let i;
+for (i = 32; i<127; i++)
+    AllChars.push(String.fromCharCode(i));
+    alphabet += AllChars[i];
 const rainDrops = [];
-
 for( let x = 0; x < columns; x++ ) {
     rainDrops[x] = 1;
 }
+
 
 const draw = () => {
     context.fillStyle = 'rgba(0, 0, 0, 0.05)';
