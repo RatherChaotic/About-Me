@@ -1,44 +1,47 @@
+const canvas = document.getElementById('background');
+const context = canvas.getContext('2d');
 
-let ip_data = null;
-$.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
-    ip_data = data;
-});
-// Initialising the canvas
-var canvas = document.querySelector('canvas'),
-    ctx = canvas.getContext('2d');
 
-// Setting the width and height of the canvas
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Setting up the letters
-var letters = 'sus';
-letters = letters.split('');
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
 
-// Setting up the columns
-var fontSize = 10,
-    columns = canvas.width / fontSize;
+const alphabet = katakana + latin + nums;
 
-// Setting up the drops
-var drops = [];
-for (var i = 0; i < columns; i++) {
-    drops[i] = 1;
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+
+const rainDrops = [];
+
+for (let x = 0; x < columns; x++) {
+    rainDrops[x] = 1;
 }
 
-// Setting up the draw function
-function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, .1)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    for (var i = 0; i < drops.length; i++) {
-        ctx.fillStyle = '#0f0';
-        letters.forEach((text, i) => ctx.fillText(text, i * fontSize, drops[i] * fontSize));
+let retrieved_entity_ip = String;
+$.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
+    console.log(data.ip.toString());
 
-        drops[i]++;
-        if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
-            drops[i] = 0;
+    retrieved_entity_ip = data.ip.toString();
+});
+
+const draw = () => {
+    context.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = '#0F0';
+    context.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < rainDrops.length; i++) {
+        const text = retrieved_entity_ip
+        context.fillText(text, (i * text.length), rainDrops[i] * fontSize);
+
+        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            rainDrops[i] = 0;
         }
+        rainDrops[i]++;
     }
-}
+};
 
-// Loop the animation
-setInterval(draw, 33);
+setInterval(draw, 30);
