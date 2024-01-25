@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RatherChaotic</title>
+    <title>About RatherChaotic</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-    <script src="assets/js/background.js" type="module"></script>
-    <canvas id="background" style='position:absolute; left:0; top:0;'>Cannot Render Canvas</canvas>
+    <div id="background">
+        <script src="assets/js/background.js" type="module"></script>
+        <canvas id="background_canvas" style='position:absolute; left:0; top:0;'>Cannot Render Canvas</canvas>
+    </div>
+    <div id="foreground">
+        <script src="assets/js/app.js" type="module"></script>
+        <canvas id="foreground_canvas"></canvas>
+        <img src="assets/images/pfp.png" alt="My Profile Picture">
+    </div>
 </body>
 </html>

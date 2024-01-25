@@ -1,32 +1,23 @@
-const canvas = document.getElementById('background');
+const canvas = document.getElementById('background_canvas');
 const context = canvas.getContext('2d');
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+
+const alphabet = katakana + latin + nums;
+
 const fontSize = 16;
-let columns = canvas.width/ fontSize;
-initalize();
+const columns = canvas.width/fontSize;
 
-function initalize() {
-    window.addEventListener('resize', resizeCanvas, false)
-    resizeCanvas();
-}
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    columns = window.innerWidth / fontSize
-}
-
-const AllChars = [];
-let alphabet = String;
-let i;
-for (i = 32; i<127; i++)
-    AllChars.push(String.fromCharCode(i));
-    alphabet += AllChars[i];
 const rainDrops = [];
+
 for( let x = 0; x < columns; x++ ) {
     rainDrops[x] = 1;
 }
-
 
 const draw = () => {
     context.fillStyle = 'rgba(0, 0, 0, 0.05)';

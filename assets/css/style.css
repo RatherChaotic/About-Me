@@ -4,7 +4,7 @@ html {
     overflow: hidden;
 }
 
-body .canvas #background{
+body .canvas #background_canvas{
     margin: 0;
     padding: 0;
     border: 0;
@@ -12,4 +12,10 @@ body .canvas #background{
     display: block;
     height: 100%;
     width: 100%;
+    z-index: -1;
+}
+
+body #foreground{
+    background-color:transparent;
+    fill-opacity: 100%;
 }
