@@ -1,10 +1,15 @@
+@font-face {
+    font-family: Monocraft;
+    src: url("../Monocraft.ttf");
+}
+
 html {
     background: black;
     height: 100%;
     overflow: hidden;
 }
 
-body .canvas #background_canvas{
+body .background {
     margin: 0;
     padding: 0;
     border: 0;
@@ -15,7 +20,19 @@ body .canvas #background_canvas{
     z-index: -1;
 }
 
-body #foreground{
-    background-color:transparent;
+body .foreground {
+    background-color: transparent;
     fill-opacity: 100%;
+    z-index: 10;
+    color: #FFF;
+    position: absolute;
+}
+
+body .foreground #pfp {
+    border-radius: 50%;
+}
+
+body #username {
+    font-family: Monocraft, monospace;
+    font-size: xx-large;
 }
