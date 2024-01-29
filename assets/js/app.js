@@ -12,7 +12,6 @@ async function typing() {
         while (i > 0) {
             document.getElementById("wia").innerHTML = document.getElementById("wia").innerHTML.slice(0, -1);
             i--;
-            console.log(i + "\n" + document.getElementById("wia").innerHTML)
             await timer(100);
         }
     }
