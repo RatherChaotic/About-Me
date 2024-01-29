@@ -9,6 +9,7 @@ async function typing() {
 
     }
     else if (i === text.length) {
+        await timer(3000)
         while (i > 0) {
             document.getElementById("wia").innerHTML = document.getElementById("wia").innerHTML.slice(0, -1);
             i--;
