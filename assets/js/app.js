@@ -2,7 +2,7 @@ let i = 0;
 let text = "An ambitious high-school student wanting to code all the things!";
 let speed = 100;
 const timer = ms => new Promise(res => setTimeout(res, ms));
-let audio = new Audio("assets/audio/text.mp3");
+let audio = new Audio("../audio/text.mp3");
 
 async function typing() {
     if (i < text.length) {
