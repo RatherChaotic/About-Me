@@ -9,7 +9,7 @@ html {
     overflow: hidden;
 }
 
-body .background {
+.background {
     margin: 0;
     padding: 0;
     border: 0;
@@ -20,19 +20,42 @@ body .background {
     z-index: -1;
 }
 
-body .foreground {
+.foreground {
     background-color: transparent;
+    height: 100%;
     fill-opacity: 100%;
-    z-index: 10;
+    z-index: 100;
     color: #FFF;
-    position: absolute;
+
+
 }
 
-body .foreground #pfp {
+.foreground #pfp {
     border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+
 }
 
-body #username {
+.foreground #username {
     font-family: Monocraft, monospace;
     font-size: xx-large;
+    margin:auto;
+    text-align:center;
+    top:30px;
+    width:100%;
+    position: relative;
+}
+
+.foreground #wia {
+    position: relative;
+    font-family: Monocraft, monospace;
+    font-size: large;
+    margin:auto;
+    text-align:center;
+    top:40px;
+    width:100%;
 }
