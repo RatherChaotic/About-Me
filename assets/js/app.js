@@ -15,7 +15,7 @@ $(function() {
         goto : function(where) {
             window.location.assign(where)
         }
-    })
+    }, {greetings: null})
 });
 
 async function typing() {
