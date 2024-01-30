@@ -3,15 +3,13 @@
     src: url("../Monocraft.ttf");
 }
 
-html .web #web{
-
-}
 .background {
     margin: 0;
     padding: 0;
     border: 0;
     overflow: hidden;
-    display:block;
+    display: block;
+    position:absolute;
     height: 100%;
     width: 100%;
     z-index: -1;
