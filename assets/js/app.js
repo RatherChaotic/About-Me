@@ -6,8 +6,12 @@ const timer = ms => new Promise(res => setTimeout(res, ms));
 
 $(function() {
     $('#terminal').terminal({
-        help: function() {
-            this.echo('help : prints helpful commands\nprint : print whatever text you like\ngoto : go to a certain .html page')
+        help: function(what = null) {
+            if (what === null) {
+                this.echo('help : prints helpful commands\nprint : print whatever text you like\ngoto : go to a certain .html page')
+            } else if (what === print) {
+                this.echo("print \"What to print\"\nPrints a string to the console")
+            }
         },
         print: function(what) {
             this.echo(what)
