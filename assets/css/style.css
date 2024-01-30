@@ -12,6 +12,7 @@ html .web #web{
     border: 0;
     overflow: hidden;
     display: block;
+    position:sticky;
     height: 100%;
     width: 100%;
     z-index: -1;
