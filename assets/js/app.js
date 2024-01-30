@@ -1,12 +1,10 @@
 let i = 0;
 let text = "An ambitious high-school student wanting to code all the things!";
-let speed = 100;
+let speed = 75;
 const timer = ms => new Promise(res => setTimeout(res, ms));
-let audio = new Audio("../../audio/text.mp3");
 
 async function typing() {
     if (i < text.length) {
-        audio.play();
         document.getElementById("wia").innerHTML += text.charAt(i);
         i++;
 
@@ -14,7 +12,6 @@ async function typing() {
     else if (i === text.length) {
         await timer(3000)
         while (i > 0) {
-            audio.play();
             document.getElementById("wia").innerHTML = document.getElementById("wia").innerHTML.slice(0, -1);
             i--;
             await timer(100);
