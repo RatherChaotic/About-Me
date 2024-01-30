@@ -9,7 +9,7 @@ $(function() {
         help: function(what = null) {
             if (what === null) {
                 this.echo('help : prints helpful commands\nprint : print whatever text you like\ngoto : go to a certain .html page')
-            } else if (what === print) {
+            } else if (what === "print") {
                 this.echo("print \"What to print\"\nPrints a string to the console")
             }
         },

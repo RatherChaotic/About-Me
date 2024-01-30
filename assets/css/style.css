@@ -10,8 +10,8 @@ html .web #web{
     margin: 0;
     padding: 0;
     border: 0;
+    overflow: hidden;
     display:block;
-    position:sticky;
     height: 100%;
     width: 100%;
     z-index: -1;
