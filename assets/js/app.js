@@ -13,15 +13,24 @@ $(function() {
             this.echo(what)
         },
         goto : function(where) {
-            window.location.assign(where)
-        }
+            if (where === "github") {
+                location.assign("https://github.com/RatherChaotic")
+            } else if (where ==="index" || where === "index.html" || where === "home"){
+                location.assign("index.html")
+            } else if (where.includes(".html")) {
+                location.assign("pages/" + where)
+            } else {
+                    location.assign("pages/" + where + ".html")
+                }
+            }
     }, {greetings: " __          __         _                                           _    _                     \n" +
             " \\ \\        / /        | |                                         | |  | |                    \n" +
             "  \\ \\  /\\  / /    ___  | |   ___    ___    _ __ ___     ___        | |  | |  ___    ___   _ __ \n" +
             "   \\ \\/  \\/ /    / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\       | |  | | / __|  / _ \\ | '__|\n" +
             "    \\  /\\  /    |  __/ | | | (__  | (_) | | | | | | | |  __/  _    | |__| | \\__ \\ |  __/ | |   \n" +
             "     \\/  \\/      \\___| |_|  \\___|  \\___/  |_| |_| |_|  \\___| ( )    \\____/  |___/  \\___| |_|   \n" +
-            "                                                             |/                                "})
+            "                                                             |/                                \n" +
+            "Website Created by Aidan Spalding"})
 });
 
 async function typing() {
@@ -32,7 +41,7 @@ async function typing() {
     }
     else if (i === text.length) {
         await timer(3000)
-        while (i > 0) {
+        while (i > 1) {
             document.getElementById("wia").innerHTML = document.getElementById("wia").innerHTML.slice(0, -1);
             i--;
             await timer(100);
