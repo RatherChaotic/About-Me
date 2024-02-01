@@ -6,11 +6,15 @@ const timer = ms => new Promise(res => setTimeout(res, ms));
 
 $(function() {
     $('#terminal').terminal({
-        help: function(what = "") {
-            if (what === "") {
+        help: function(what) {
+            if (what === undefined) {
                 this.echo('help : prints helpful commands\nprint : print whatever text you like\ngoto : go to a certain .html page')
             } else if (what === "print") {
-                this.echo("print \"What to print\"\nPrints a string to the console")
+                this.echo("print \"(arg)\"\n\nPrints a string to the console")
+            } else if (what === "goto") {
+                this.echo("print \"(arg)\"\n\nGoes to a specific webpage")
+            } else {
+                this.echo("command not found")
             }
         },
         print: function(what) {
@@ -27,7 +31,7 @@ $(function() {
                     location.assign("pages/" + where + ".html")
                 }
             }
-    }, {greetings: " __          __         _                                           _    _                     \n" +
+    }, {checkArity:false, greetings: " __          __         _                                           _    _                     \n" +
             " \\ \\        / /        | |                                         | |  | |                    \n" +
             "  \\ \\  /\\  / /    ___  | |   ___    ___    _ __ ___     ___        | |  | |  ___    ___   _ __ \n" +
             "   \\ \\/  \\/ /    / _ \\ | |  / __|  / _ \\  | '_ ` _ \\   / _ \\       | |  | | / __|  / _ \\ | '__|\n" +

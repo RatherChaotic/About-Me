@@ -11,13 +11,20 @@ const nums = '0123456789';
 const alphabet = katakana + latin + nums;
 
 const fontSize = 16;
-const columns = canvas.width/fontSize;
+let columns = canvas.width/fontSize;
 
-const rainDrops = [];
+let rainDrops = Array(columns).fill(1);
 
 for( let x = 0; x < columns; x++ ) {
     rainDrops[x] = 1;
 }
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    columns = canvas.width/fontSize;
+    rainDrops = Array(columns).fill(1);
+});
 
 const draw = () => {
     context.fillStyle = 'rgba(0, 0, 0, 0.05)';
