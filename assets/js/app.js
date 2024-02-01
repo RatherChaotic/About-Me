@@ -10,9 +10,9 @@ $(function() {
             if (what === undefined) {
                 this.echo('help : prints helpful commands\nprint : print whatever text you like\ngoto : go to a certain .html page')
             } else if (what === "print") {
-                this.echo("print \"(arg)\"\n\nPrints a string to the console")
+                this.echo("print \"(arg)\"\n\nprints a string to the console")
             } else if (what === "goto") {
-                this.echo("print \"(arg)\"\n\nGoes to a specific webpage")
+                this.echo("goto \"(arg)\"\n\ngoes to a specific webpage\n\nlocations : github, home, ")
             } else {
                 this.echo("command not found")
             }
