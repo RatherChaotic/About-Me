@@ -3,14 +3,22 @@
     src: url("../Monocraft.ttf");
 }
 
-.background {
+body {
+    height: auto;
+}
+
+.background canvas{
+    position: fixed;
+    left: 0;
+    top: 0;
     margin: 0;
     padding: 0;
     border: 0;
-    display: block;
-    position: sticky;
-    height: 100%;
-    width: 100%;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    height: auto;
+    width: auto;
     z-index: -1;
 }
 
