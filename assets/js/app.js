@@ -3,7 +3,6 @@ let text = "An ambitious high-school student wanting to code all the things!";
 let speed = 75;
 const timer = ms => new Promise(res => setTimeout(res, ms));
 
-
 $(function() {
     $('#terminal').terminal({
         help: function(what) {
@@ -18,7 +17,11 @@ $(function() {
             }
         },
         print: function(what) {
-            this.echo(what)
+            if (what === undefined) {
+                this.echo("[[;red;;]Cannot print null!")
+            } else {
+                this.echo(what)
+            }
         },
         goto : function(where) {
             if (where === "github") {
@@ -30,7 +33,10 @@ $(function() {
             } else {
                     location.assign("pages/" + where + ".html")
                 }
-            }
+            },
+        color : function(what) {
+            color = what
+        }
     }, {checkArity:false, greetings: " __          __         _                                           _    _                     \n" +
             " \\ \\        / /        | |                                         | |  | |                    \n" +
             "  \\ \\  /\\  / /    ___  | |   ___    ___    _ __ ___     ___        | |  | |  ___    ___   _ __ \n" +
@@ -52,7 +58,7 @@ async function typing() {
         while (i > 1) {
             document.getElementById("wia").innerHTML = document.getElementById("wia").innerHTML.slice(0, -1);
             i--;
-            await timer(100);
+            await timer(0);
         }
     }
     setTimeout(typing, speed);

@@ -12,7 +12,7 @@ const alphabet = katakana + latin + nums;
 
 const fontSize = 16;
 let columns = canvas.width/fontSize;
-
+let color = '#0F0'
 let rainDrops = Array(columns).fill(1);
 
 for( let x = 0; x < columns; x++ ) {
@@ -30,7 +30,7 @@ const draw = () => {
     context.fillStyle = 'rgba(0, 0, 0, 0.05)';
     context.fillRect(0, 0, canvas.width, canvas.height);
 
-    context.fillStyle = '#0F0';
+    context.fillStyle = color;
     context.font = fontSize + 'px monocraft';
 
     for(let i = 0; i < rainDrops.length; i++)
@@ -47,3 +47,5 @@ const draw = () => {
 
 
 setInterval(draw, 30);
+
+module.exports = {color}
