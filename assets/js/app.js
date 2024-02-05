@@ -28,7 +28,9 @@ $(function() {
                 location.assign("https://github.com/RatherChaotic")
             } else if (where ==="index" || where === "index.html" || where === "home"){
                 location.assign("index.html")
-            } else if (where.includes(".html")) {
+            } else if (where === "about") {
+                location.assign("pages/wia.html")
+            }else if (where.includes(".html")) {
                 location.assign("pages/" + where)
             } else {
                     location.assign("pages/" + where + ".html")

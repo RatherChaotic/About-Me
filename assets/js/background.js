@@ -47,5 +47,3 @@ const draw = () => {
 
 
 setInterval(draw, 30);
-
-module.exports = {color}

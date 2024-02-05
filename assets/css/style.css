@@ -75,3 +75,10 @@ body {
     font-size: 20px;
     line-height: 20px;
 }
+
+.wia #background {
+    z-index: -1;
+}
+.wia #main {
+    z-index: 10;
+}
